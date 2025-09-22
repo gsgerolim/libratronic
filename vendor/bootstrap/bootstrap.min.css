@@ -1,0 +1,18 @@
+/* Minimal subset of Bootstrap-like classes for offline demo.
+   Replace with official Bootstrap files for production. */
+:root { --bs-primary: #0d6efd; --bs-border: #dee2e6; --bs-body: #212529; --bs-bg: #f8f9fa;}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; color:var(--bs-body); background:var(--bs-bg)}
+.container{max-width:960px;margin:0 auto;padding:1rem}
+.btn{display:inline-block;padding:.5rem 1rem;border:1px solid var(--bs-primary);border-radius:.375rem;background:var(--bs-primary);color:#fff;text-decoration:none;cursor:pointer}
+.btn-outline{background:transparent;color:var(--bs-primary)}
+.input, input, textarea, select{width:100%;padding:.5rem;border:1px solid var(--bs-border);border-radius:.375rem}
+.card{border:1px solid var(--bs-border);border-radius:.5rem;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.06);margin:1rem 0}
+.card-header{padding:.75rem 1rem;border-bottom:1px solid var(--bs-border);font-weight:600}
+.card-body{padding:1rem}
+.row{display:flex;flex-wrap:wrap;margin:-.5rem}
+.col{flex:1 0 0%;padding:.5rem}
+.col-6{flex:0 0 50%;max-width:50%;padding:.5rem}
+.nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.badge{display:inline-block;padding:.35em .65em;border:1px solid var(--bs-border);border-radius:999px;background:#fff}
+.small{font-size:.875rem;color:#555}
+hr{border:none;border-top:1px solid var(--bs-border);margin:1rem 0}

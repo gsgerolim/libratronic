@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Áudio</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a class="btn btn-outline" href="index.html" data-nav>Conexão</a>
+      <a class="btn btn-outline" href="letters.html" data-nav>Letras</a>
+      <a class="btn btn-outline" href="phrases.html" data-nav>Frases</a>
+      <a class="btn btn-outline" href="audio.html" data-nav>Áudio</a>
+    </nav>
+    
+<div class="card">
+  <div class="card-header">Capturar e Enviar Áudio</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <button id="btnStartRec" class="btn">Gravar</button>
+      </div>
+      <div class="col">
+        <button id="btnStopRec" class="btn btn-outline">Parar</button>
+      </div>
+      <div class="col">
+        <button id="btnSendAudio" class="btn">Enviar Último Áudio</button>
+      </div>
+    </div>
+    <div class="small" id="audioStatus"></div>
+    <audio id="preview" controls style="margin-top:.5rem;width:100%"></audio>
+  </div>
+</div>
+<script src="assets/js/audio.js"></script>
+
+  </div>
+  <script src="vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="assets/js/connection.js"></script>
+</body>
+</html>

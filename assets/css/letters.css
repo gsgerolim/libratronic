@@ -1,0 +1,31 @@
+/* Grid responsiva para letras */
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* mínimo 80px, máximo 1fr */
+  gap: 10px;
+  justify-items: center;
+  max-width: 400px; /* opcional: limita a largura total */
+  margin: 0 auto;
+}
+
+/* Botões de letras */
+.btn-letter {
+  width: 100%;
+  padding: 15px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+  background-color: #54a0ff;
+  color: white;
+  border: none;
+}
+
+.btn-letter:hover {
+  transform: scale(1.1);
+}
+
+.btn-letter:active {
+  background-color: #2e86de;
+}

@@ -1,0 +1,67 @@
+/* Overlay de fundo (opcional, deixa mais destacado) */
+.connection-card::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+  display: none; /* só ativa se quiser efeito escurecido atrás do card */
+  z-index: 999;
+}
+
+/* Card principal */
+.connection-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  z-index: 1000;
+  display: none; /* inicial: escondido */
+}
+
+/* Card bootstrap (só ajustando visual) */
+.connection-card .card {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Header do card */
+.connection-card .card-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botão de fechar */
+.connection-card .btn-outline-danger {
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0 10px;
+}
+
+/* Inputs e selects */
+.connection-card input,
+.connection-card select {
+  border-radius: 6px;
+}
+
+/* Botões dentro do card */
+.connection-card button {
+  border-radius: 8px;
+}
+
+/* Pequena animação de abertura */
+.connection-card.show {
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -55%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enviar Frases</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/phrases.css">
+</head>
+<body>
+  <div class="container py-4">
+    <!-- Navegação -->
+    <nav class="nav justify-content-center mb-4">
+      <a class="btn btn-outline mx-1" href="index.html">Conexão</a>
+      <a class="btn btn-outline mx-1" href="letters.html">Letras</a>
+      <a class="btn btn-primary mx-1" href="phrases.html">Frases</a>
+      <a class="btn btn-outline mx-1" href="audio.html">Áudio</a>
+    </nav>
+    
+    <!-- Card de envio -->
+    <div class="card shadow-lg">
+      <div class="card-header text-center fw-bold">✍️ Enviar Frases</div>
+      <div class="card-body">
+        <textarea id="phrase" rows="3" class="form-control" placeholder="Digite sua frase aqui..."></textarea>
+        <div class="d-grid mt-3">
+          <button id="btnSendPhrase" class="btn btn-success">Enviar</button>
+        </div>
+        <div class="text-center small mt-2" id="phraseStatus">Aguardando envio...</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/phrases.js"></script>
+  <script src="vendor/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

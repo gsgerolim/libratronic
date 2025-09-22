@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conexão ESP</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/wifiIcon.css">
+<link rel="stylesheet" href="assets/css/mainButtons.css">
+<link rel="stylesheet" href="assets/css/modal.css">
+<link rel="stylesheet" href="assets/css/connectionCard.css">
+<link rel="stylesheet" href="assets/css/letters.css">
+</head>
+
+<body>
+  <!-- Ícone flutuante -->
+  <div id="wifiIcon" class="wifi-icon disconnected" title="Conexão ESP"></div>
+
+  <div id="connectionSection">
+    <!-- Popup Modal de conexão -->
+    <div id="connectionCard" class="connection-card">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="card">
+          <div class="card-header">Conectar ao ESP</div>
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col">
+                <label class="small">Host/IP do ESP</label>
+                <select id="espHost" class="input form-control">
+                  <option value="http://192.168.4.1">192.168.4.1</option>
+                  <option value="http://esp32.local" selected>esp32.local</option>
+                </select>
+              </div>
+              <div class="col">
+                <label class="small">Transporte</label>
+                <select id="transport" class="input form-control">
+                  <option value="wifi" selected>WiFi (HTTP + WebSocket)</option>
+                  <option value="ble">Bluetooth (BLE UART)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-6">
+                <button id="btnConnect" class="btn btn-primary w-100">Conectar</button>
+              </div>
+              <div class="col-6">
+                <button id="btnScan" class="btn btn-outline-secondary w-100">Listar redes WiFi</button>
+              </div>
+            </div>
+
+            <hr />
+            <div id="status" class="small mb-2">Status: aguardando...</div>
+            <div id="wifiList" class="small mb-2"></div>
+
+            <div class="row" id="wifiForm" style="display:none">
+              <div class="col">
+                <label class="small">SSID</label>
+                <input id="ssid" class="input form-control" />
+              </div>
+              <div class="col">
+                <label class="small">Senha</label>
+                <input id="password" class="input form-control" type="password" />
+              </div>
+              <div class="col">
+                <label class="small">&nbsp;</label>
+                <button id="btnSaveWifi" class="btn btn-success w-100">Salvar & Conectar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Três botões lúdicos desabilitados -->
+    <div class="container-buttons">
+      <div class="button-row">
+        <button id="btnLetras" class="feature-btn">LETRAS</button>
+      </div>
+      <div class="button-row">
+        <button id="btnFrases" class="feature-btn" disabled>FRASES</button>
+      </div>
+      <div class="button-row">
+        <button id="btnAudio" class="feature-btn" disabled>AUDIO</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção de letras -->
+  <div id="lettersSection" style="display:none">
+    <h1 class="text-center my-4">Envio de Letras</h1>
+    <div id="letterGrid" class="letter-grid"></div>
+    <p id="letterStatus" class="text-center mt-3">Nenhuma letra enviada.</p>
+    <div class="text-center mt-4">
+      <button id="btnBackToMain" class="btn btn-secondary">Voltar</button>
+    </div>
+  </div>
+
+  <!-- Seção de frases -->
+<div id="phrasesSection" style="display:none">
+  <h1 class="text-center my-4">Envio de Frases</h1>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">Digite sua frase</div>
+      <div class="card-body">
+        <textarea id="phraseInput" rows="3" class="form-control" placeholder="Digite sua frase aqui..."></textarea>
+        <div class="text-center mt-3">
+          <button id="btnSendPhrase" class="btn btn-primary">Enviar</button>
+          <button id="btnStartSpeech" class="btn btn-success ms-2">🎤 Falar</button>
+          <button id="btnStopSpeech" class="btn btn-danger ms-2">⏹️ Parar</button>
+          <button id="btnBackFromPhrases" class="btn btn-secondary ms-2">Voltar</button>
+        </div>
+        <p id="phraseStatus" class="text-center mt-2 text-muted">Nenhuma frase enviada.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <script src="vendor/bootstrap/bootstrap.min.js"></script>
+  <script type="module" src="assets/js/appcon.js"></script>
+  <script type="module" src="assets/js/connection.js"></script>
+  <script type="module" src="assets/js/wifiIcon.js"></script>
+  <script type="module" src="assets/js/mainButtons.js"></script>
+  <script type="module" src="assets/js/connectionCard.js"></script>
+  <script type="module" src="assets/js/phrases.js"></script>
+</body>
+
+</html>

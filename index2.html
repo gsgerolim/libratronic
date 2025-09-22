@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESP32 WiFi Manager</title>
+<style>
+  body { font-family: sans-serif; padding: 20px; }
+  button { margin: 5px 0; }
+  select, input { margin: 5px 0; width: 100%; }
+  #wifiForm { display: none; margin-top: 10px; }
+</style>
+</head>
+<body>
+<h2>ESP32 WiFi Manager</h2>
+
+<div>
+  <button id="btnStatus">Ver Status</button>
+  <div id="statusBox"></div>
+</div>
+
+<div>
+  <button id="btnScan">Listar Redes WiFi</button>
+  <div id="wifiList"></div>
+</div>
+
+<div id="wifiForm">
+  <h4>Conectar à Rede</h4>
+  <label>SSID:</label>
+  <input type="text" id="ssid">
+  <label>Senha:</label>
+  <input type="password" id="password">
+  <button id="btnConnect">Salvar & Conectar</button>
+  <div id="connectStatus"></div>
+</div>
+
+<script>
+const apiBase = "http://192.168.4.1";
+
+async function getStatus() {
+  const res = await fetch(`${apiBase}/status`);
+  const data = await res.json();
+  document.getElementById("statusBox").innerText = JSON.stringify(data, null, 2);
+}
+
+async function scanWifi() {
+  const res = await fetch(`${apiBase}/scan`);
+  const redes = await res.json();
+
+  const listDiv = document.getElementById("wifiList");
+  listDiv.innerHTML = "";
+  if (!redes || redes.length === 0) {
+    listDiv.innerText = "Nenhuma rede encontrada";
+    return;
+  }
+
+  const select = document.createElement("select");
+  redes.forEach(r => {
+    const opt = document.createElement("option");
+    opt.value = r.ssid;
+    opt.textContent = r.ssid + (r.open ? " (aberta)" : "");
+    select.appendChild(opt);
+  });
+  select.addEventListener("change", () => {
+    document.getElementById("ssid").value = select.value;
+  });
+
+  listDiv.appendChild(select);
+  document.getElementById("wifiForm").style.display = "block";
+  document.getElementById("ssid").value = redes[0].ssid;
+}
+
+async function connectWifi() {
+  const ssid = document.getElementById("ssid").value;
+  const password = document.getElementById("password").value;
+
+  const res = await fetch(`${apiBase}/wifi`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ssid, password })
+  });
+
+  const data = await res.json();
+  document.getElementById("connectStatus").innerText = JSON.stringify(data, null, 2);
+}
+
+document.getElementById("btnStatus").addEventListener("click", getStatus);
+document.getElementById("btnScan").addEventListener("click", scanWifi);
+document.getElementById("btnConnect").addEventListener("click", connectWifi);
+</script>
+</body>
+</html>

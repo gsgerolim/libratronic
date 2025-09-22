@@ -1,0 +1,25 @@
+.wifi-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  z-index: 1000;
+}
+
+.wifi-icon.disconnected { background-color: gray; }
+.wifi-icon.connecting { background-color: orange; animation: blink 1s infinite; }
+.wifi-icon.connected { background-color: green; }
+.wifi-icon.failed { background-color: red; }
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.5; }
+}

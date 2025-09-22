@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enviar Letras</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/letters.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center my-4">Envio de Letras</h1>
+
+    <!-- grade de botões -->
+    <div id="letterGrid" class="letter-grid"></div>
+
+    <!-- status -->
+    <p id="letterStatus" class="text-center mt-3">Nenhuma letra enviada.</p>
+
+    <!-- botão voltar -->
+    <div class="text-center mt-4">
+      <a href="index.html" class="btn btn-secondary">Voltar</a>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/utils.js"></script>
+  <script type="module" src="assets/js/appcon.js"></script>
+  <script type="module" src="assets/js/letters.js"></script>
+</body>
+</html>
