@@ -7,10 +7,10 @@ function connect(host){
     if(ws && ws.readyState === WebSocket.OPEN) return resolve();
 
     host = host.replace(/^https?:\/\//,"").replace(/\/+$/,"");
-    ws = new WebSocket(`ws://${host}:81`);
+    ws = new WebSocket(`wss://${host}:81`);
 
     ws.onopen = ()=>resolve();
-    ws.onclose = ()=>console.log("WS desconectado");
+    ws.onclose = ()=>console.log("WSS desconectado");
     ws.onerror = (err)=>reject(err);
 
     ws.onmessage = (evt)=>{
@@ -48,7 +48,7 @@ function getWS() {
 // HTTP GET
 async function apiGet(path){
   const host = document.getElementById("espHost").value.trim().replace(/^https?:\/\//,"").replace(/\/+$/,"");
-  const res = await fetch(`http://${host}${path}`);
+  const res = await fetch(`https://${host}${path}`);
   if(!res.ok) throw new Error("Falha na requisição HTTP");
   return res.json();
 }
@@ -56,7 +56,7 @@ async function apiGet(path){
 // HTTP POST
 async function apiPost(path, data){
   const host = document.getElementById("espHost").value.trim().replace(/^https?:\/\//,"").replace(/\/+$/,"");
-  const res = await fetch(`http://${host}${path}`, {
+  const res = await fetch(`https://${host}${path}`, {
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify(data)
