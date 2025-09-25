@@ -7,7 +7,7 @@ function connect(host){
     if(ws && ws.readyState === WebSocket.OPEN) return resolve();
 
     host = host.replace(/^http?:\/\//,"").replace(/\/+$/,"");
-    ws = new WebSocket(`ws://${host}:81`);
+    ws = new WebSocket(`wss://${host}:81`);
 
     ws.onopen = ()=>resolve();
     ws.onclose = ()=>console.log("WS desconectado");
