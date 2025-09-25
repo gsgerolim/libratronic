@@ -10,7 +10,7 @@ function connect(host){
     ws = new WebSocket(`ws://${host}:81`);
 
     ws.onopen = ()=>resolve();
-    ws.onclose = ()=>console.log("WSS desconectado");
+    ws.onclose = ()=>console.log("WS desconectado");
     ws.onerror = (err)=>reject(err);
 
     ws.onmessage = (evt)=>{
