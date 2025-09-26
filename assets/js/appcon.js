@@ -8,7 +8,7 @@ function connect(host){
 
     host = host.replace(/^http?:\/\//,"").replace(/\/+$/,"");
     //ws = new WebSocket(`wss://${host}:81`);
-    ws = new WebSocket(`wss://meu-proxy.onrender.com/ws`);
+    ws = new WebSocket(`wss://esp32-proxy-fhyw.onrender.com/ws`);
 
     ws.onopen = ()=>resolve();
     ws.onclose = ()=>console.log("WS desconectado");
@@ -50,7 +50,7 @@ function getWS() {
 async function apiGet(path){
   const host = document.getElementById("espHost").value.trim().replace(/^http?:\/\//,"").replace(/\/+$/,"");
   //const res = await fetch(`http://${host}${path}`);
-  const res = await fetch(`https://meu-proxy.onrender.com${path}`);
+  const res = await fetch(`https://meu-esp32-proxy-fhyw.onrender.com${path}`);
   if(!res.ok) throw new Error("Falha na requisição HTTP");
   return res.json();
 }
@@ -63,7 +63,7 @@ async function apiPost(path, data){
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify(data)
   });*/
-  const res = await fetch(`https://meu-proxy.onrender.com${path}`, {
+  const res = await fetch(`https://meu-esp32-proxy-fhyw.onrender.com${path}`, {
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify(data)
